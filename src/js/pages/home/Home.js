@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Monitor from "./Monitor";
-import Repositories from "./Repositories";
-import ReleaseNote from "./ReleaseNote";
 import logo from "../../../img/logo.png";
 import "./styles/Home.css";
 
@@ -12,10 +10,7 @@ class Home extends Component {
       <div className="home">
         <img src={logo} alt="" />
         <span>Github Release Monitor Tool</span>
-        <Monitor>
-          <Repositories />
-          <ReleaseNote />
-        </Monitor>
+        <Monitor />
       </div>
     );
   }

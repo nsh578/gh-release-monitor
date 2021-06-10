@@ -1,8 +1,16 @@
 import React, { Component } from "react";
+import RepositoryDetail from "./RepositoryDetail";
 
 class RepositoryList extends Component {
   render() {
-    return <div></div>;
+    const repos = [1, 2, 3, 4, 5];
+    return (
+      <div>
+        {repos.map((repo) => {
+          return <RepositoryDetail repo={repo} />;
+        })}
+      </div>
+    );
   }
 }
 
