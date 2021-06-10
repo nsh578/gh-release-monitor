@@ -10,6 +10,9 @@ const repositoryReducer = (state = initState, action) => {
       return Object.assign({}, state, {
         repositories: [...state.repositories, action.repo],
       });
+    case "ADD_REPO_ERROR":
+      console.log(action.err);
+      return state;
     default:
       return state;
   }
