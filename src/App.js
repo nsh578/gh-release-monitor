@@ -10,7 +10,6 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    console.log(this.props);
     if (!this.props.auth.isLoaded) {
       return <Fragment></Fragment>;
     }

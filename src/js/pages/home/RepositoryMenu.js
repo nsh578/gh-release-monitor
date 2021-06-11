@@ -27,11 +27,14 @@ class RepositoryMenu extends Component {
     return (
       <div className="repository-menu">
         <h3>Tracked Repositories</h3>
-        {/* <button onClick={() => this.props.addRepository("mike", "lumanu")}>
-          <img src={add} alt="" />
-        </button> */}
-
-        <Popup trigger={<img className="add-button" src={add} alt="" />} modal>
+        <Popup
+          trigger={
+            <button>
+              <img className="add-button" src={add} alt="" />
+            </button>
+          }
+          modal
+        >
           {(close) => (
             <div className="add-repository-popup">
               <button onClick={close}>&times;</button>

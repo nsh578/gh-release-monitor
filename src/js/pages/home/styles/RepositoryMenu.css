@@ -1,11 +1,19 @@
 .repository-menu {
   display: flex;
   border: 1px solid black;
+  justify-content: center;
 }
 
 .repository-menu img {
   height: 24px;
   cursor: pointer;
+}
+
+.repository-menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .add-repository-popup {

@@ -5,8 +5,16 @@ class RepositoryList extends Component {
   render() {
     return (
       <div>
-        {this.props.repos.map((repo) => {
-          return <RepositoryDetail key={repo.url} repo={repo} />;
+        {this.props.repos.map((repo, i) => {
+          console.log(i);
+          return (
+            <RepositoryDetail
+              key={i}
+              id={i}
+              repo={repo}
+              selectRepository={this.props.selectRepository}
+            />
+          );
         })}
       </div>
     );

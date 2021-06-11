@@ -8,7 +8,6 @@ class ReleaseNote extends Component {
     if (this.props.repos) {
       repo = this.props.repos[this.props.currentIndex];
     }
-    console.log(repo);
     return (
       <div className="release-note-container">
         {repo && (
