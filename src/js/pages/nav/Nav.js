@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { signOut } from "../../actions/authActions";
 import Notifications from "./Notifications";
 import logo from "../../../img/logo.png";
 import "./styles/Nav.css";
@@ -18,6 +20,9 @@ class Nav extends Component {
             <li>
               <Notifications />
             </li>
+            <li>
+              <button onClick={this.props.signOut}>Sign Out</button>
+            </li>
           </div>
         </ul>
       </nav>
@@ -25,4 +30,16 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

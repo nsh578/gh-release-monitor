@@ -16,6 +16,7 @@ import {
   getFirebase,
   reactReduxFirebase,
 } from "react-redux-firebase";
+import firebase from "firebase/app";
 import firebaseConfig from "./config/firebaseConfig";
 import rootReducer from "./js/reducers/rootReducer";
 
@@ -28,10 +29,23 @@ const store = createStore(
   )
 );
 
+const rrfConfig = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+};
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance,
+};
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
