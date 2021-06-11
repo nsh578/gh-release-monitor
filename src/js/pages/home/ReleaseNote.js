@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import ReactMarkdown from "react-markdown";
 import "./styles/ReleaseNote.css";
 
 class ReleaseNote extends Component {
@@ -13,9 +14,9 @@ class ReleaseNote extends Component {
         {repo && (
           <Fragment>
             <h3>
-              {repo.owner} {repo.repo} Release Notes
+              @{repo.owner} {repo.repo} Release Notes
             </h3>
-            <p>{repo.releaseBody}</p>
+            <ReactMarkdown>{repo.releaseBody}</ReactMarkdown>
           </Fragment>
         )}
       </div>

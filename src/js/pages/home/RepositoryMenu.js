@@ -33,14 +33,7 @@ class RepositoryMenu extends Component {
     return (
       <div className="repository-menu">
         <h3>Tracked Repositories</h3>
-        <Popup
-          trigger={
-            <button>
-              <img className="add-button" src={add} alt="" />
-            </button>
-          }
-          modal
-        >
+        <Popup trigger={<button>Add</button>} modal>
           {(close) => (
             <div className="add-repository-popup">
               <button onClick={close}>&times;</button>
@@ -59,9 +52,7 @@ class RepositoryMenu extends Component {
           )}
         </Popup>
 
-        <button onClick={this.reloadRepository}>
-          <img src={refresh} alt="" />
-        </button>
+        <button onClick={this.reloadRepository}>Refresh</button>
       </div>
     );
   }

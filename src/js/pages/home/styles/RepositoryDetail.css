@@ -1,4 +1,14 @@
 .repository-detail {
-  border: 1px solid black;
+  border-top: 1px solid rgb(88, 88, 88);
   cursor: pointer;
+  text-align: left;
+  padding: 5px;
+  position: relative;
+}
+
+.new-icon {
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }

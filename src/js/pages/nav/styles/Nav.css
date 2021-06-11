@@ -18,6 +18,25 @@
   display: flex;
 }
 
+.nav li button {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  background-color: #188db2;
+  border: none;
+  border-radius: 20px;
+  justify-content: center;
+  vertical-align: middle;
+  margin-top: 3px;
+  margin-left: 20px;
+  padding: 10px 15px;
+}
+
+.nav li button:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
 .title {
   font-size: 24px;
   vertical-align: middle;

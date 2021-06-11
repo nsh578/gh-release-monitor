@@ -1,5 +1,13 @@
 .release-note-container {
   flex: 2;
-  padding: 0px 20 px;
-  border: 1px solid black;
+  padding: 0px 20px;
+  border-left: 1px solid rgb(88, 88, 88);
+  text-align: left;
+}
+
+.release-note-container h3 {
+  height: 40px;
+  margin: 0;
+  border-bottom: 1px solid black;
+  padding-top: 20px;
 }

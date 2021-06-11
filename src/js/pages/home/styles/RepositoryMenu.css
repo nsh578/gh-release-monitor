@@ -1,15 +1,9 @@
 .repository-menu {
   display: flex;
-  border: 1px solid black;
   justify-content: center;
-}
-
-.repository-menu img {
-  height: 24px;
-  cursor: pointer;
-  background-color: #56bfa0;
-  border-radius: 50%;
-  border-width: thin;
+  height: 60px;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .repository-menu button {
@@ -17,6 +11,20 @@
   border: none;
   cursor: pointer;
   outline: none;
+  height: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  color: white;
+  background-color: #188db2;
+  vertical-align: middle;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.repository-menu button:hover {
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 .add-repository-popup {
