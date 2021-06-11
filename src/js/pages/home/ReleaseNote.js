@@ -4,7 +4,7 @@ import "./styles/ReleaseNote.css";
 
 class ReleaseNote extends Component {
   render() {
-    var repo = null;
+    let repo = null;
     if (this.props.repos) {
       repo = this.props.repos[this.props.currentIndex];
     }

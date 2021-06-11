@@ -13,6 +13,7 @@ class RepositoryList extends Component {
               id={i}
               repo={repo}
               selectRepository={this.props.selectRepository}
+              userId={this.props.userId}
             />
           );
         })}

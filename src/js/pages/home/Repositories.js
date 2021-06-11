@@ -16,6 +16,7 @@ class Repositories extends Component {
         <RepositoryList
           repos={this.props.repos}
           selectRepository={this.props.selectRepository}
+          userId={this.props.auth.uid}
         />
       </div>
     );
@@ -27,14 +28,15 @@ const mapDispatchToProps = (dispatch) => {
     addRepository: (owner, repo) =>
       dispatch(RepositoryActions.addRepository(owner, repo)),
     loadRepositories: () => dispatch(RepositoryActions.loadRepositories()),
-    selectRepository: (ind) =>
-      dispatch(RepositoryActions.selectRepository(ind)),
+    selectRepository: (ind, repoId) =>
+      dispatch(RepositoryActions.selectRepository(ind, repoId)),
   };
 };
 
 const mapStateToProps = (state) => {
   return {
     repos: state.repository.repositories,
+    auth: state.firebase.auth,
   };
 };
 

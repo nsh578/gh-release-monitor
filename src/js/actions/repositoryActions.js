@@ -30,7 +30,7 @@ export const addRepository = (owner, repo) => {
       url: latestRelease.url,
       publishedAt: latestRelease.data.published_at,
       tagName: latestRelease.data.tag_name,
-      seenUsers: [],
+      seenUsers: {},
     };
     console.log(userId);
     firestore
@@ -66,6 +66,8 @@ export const loadRepositories = () => {
     const userId = getState().firebase.auth.uid;
     let doc = await firestore.collection("users").doc(userId).get();
 
+    if (!doc.data()) return;
+
     let repositories = [];
     await Promise.all(
       doc.data().repos.map(async (repo) => {
@@ -97,12 +99,27 @@ export const reloadRepositories = (repositories) => {
   };
 };
 
-export const selectRepository = (ind) => {
+export const selectRepository = (ind, repoId) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
 
-    dispatch({ type: SELECT_REPO_SUCCESS, ind });
+    var seenUsers = {};
+    seenUsers[userId] = true;
+
+    firestore
+      .collection("repositories")
+      .doc(repoId)
+      .update({
+        seenUsers,
+      })
+      .then(() => {
+        console.log("success");
+        dispatch({ type: SELECT_REPO_SUCCESS, ind, userId });
+      })
+      .catch((err) => {
+        dispatch({ type: SELECT_REPO_ERROR, err });
+      });
     return null;
   };
 };

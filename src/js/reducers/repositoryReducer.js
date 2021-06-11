@@ -19,8 +19,11 @@ const repositoryReducer = (state = initState, action) => {
       console.log(action.err);
       return state;
     case "SELECT_REPO_SUCCESS":
+      let repositories = state.repositories;
+      repositories[action.ind].seenUsers[action.userId] = true;
       return Object.assign({}, state, {
         currentIndex: action.ind,
+        repositories: [...repositories],
       });
     case "SELECT_REPO_ERROR":
       console.log(action.err);

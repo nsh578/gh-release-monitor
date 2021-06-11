@@ -7,6 +7,9 @@
 .repository-menu img {
   height: 24px;
   cursor: pointer;
+  background-color: #56bfa0;
+  border-radius: 50%;
+  border-width: thin;
 }
 
 .repository-menu button {
