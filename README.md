@@ -4,6 +4,11 @@ A tool to keep track of releases made by GitHub repos.   This repository contain
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Running Instructions:
+1. `npm install`
+2. `npm start`
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ## Available Scripts
 
 In the project directory, you can run:
