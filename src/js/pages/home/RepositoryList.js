@@ -6,7 +6,6 @@ class RepositoryList extends Component {
     return (
       <div>
         {this.props.repos.map((repo, i) => {
-          console.log(i);
           return (
             <RepositoryDetail
               key={i}

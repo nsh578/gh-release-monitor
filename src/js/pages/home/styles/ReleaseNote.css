@@ -1,3 +1,5 @@
 .release-note-container {
   flex: 2;
+  padding: 0px 20 px;
+  border: 1px solid black;
 }

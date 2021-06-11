@@ -5,22 +5,23 @@ import {
   LOAD_REPOS_ERROR,
   SELECT_REPO_SUCCESS,
   SELECT_REPO_ERROR,
+  RELOAD_REPOS_SUCCESS,
+  RELOAD_REPOS_ERROR,
 } from "../constants/repoActionTypes";
 import { getLatestRelease } from "../helpers/getLatestRelease";
 
-export const addRepository = (owner, repo) => {
+export const addRepository = (owner, repo, force = false) => {
   return async (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const repoId = owner + "@" + repo;
     const userId = getState().firebase.auth.uid;
+    console.log("hello");
+    if (getState().repository.repoList.includes(repoId) && !force) return;
 
-    //TODO: early return when repo is already added.
     //TODO: When error, check whether repo exists
     let latestRelease = await getLatestRelease(owner, repo, dispatch);
-
     if (!latestRelease) return;
 
-    //TODO: Should try retrieving first and build this. (update seen users)
     const repoData = {
       owner,
       repo,
@@ -32,7 +33,7 @@ export const addRepository = (owner, repo) => {
       tagName: latestRelease.data.tag_name,
       seenUsers: {},
     };
-    console.log(userId);
+
     firestore
       .collection("repositories")
       .doc(repoId)
@@ -80,22 +81,52 @@ export const loadRepositories = () => {
           });
       })
     );
-    dispatch({ type: LOAD_REPOS_SUCCESS, repositories });
+    dispatch({
+      type: LOAD_REPOS_SUCCESS,
+      repositories,
+      repoList: doc.data().repos,
+    });
     return null;
   };
 };
 
 export const reloadRepositories = (repositories) => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return async (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
+    const repositories = getState().repository.repositories;
 
-    // let repos = await Promise.all(
-    //   repositories.map(async (repo) => {
-    //     const repo = await
-    //   })
-    // )
-    return null;
+    let repos = await Promise.all(
+      repositories.map(async (repo) => {
+        const repoId = repo.owner + "@" + repo.repo;
+
+        let latestRelease = await getLatestRelease(
+          repo.owner,
+          repo.repo,
+          dispatch
+        );
+        if (latestRelease.url != repo.url) {
+          //Force update if there is new release
+          // await addRepository(repo.owner, repo.repo, true);
+          const repoData = {
+            owner: repo.owner,
+            repo: repo.repo,
+            releaseBody: latestRelease.data.body,
+            author: latestRelease.data.author.login,
+            name: latestRelease.data.name,
+            url: latestRelease.url,
+            publishedAt: latestRelease.data.published_at,
+            tagName: latestRelease.data.tag_name,
+            seenUsers: {},
+          };
+          firestore.collection("repositories").doc(repoId).set(repoData);
+        }
+      })
+    );
+    loadRepositories();
+    dispatch({
+      type: RELOAD_REPOS_SUCCESS,
+    });
   };
 };
 

@@ -12,7 +12,11 @@ class Repositories extends Component {
   render() {
     return (
       <div className="repositories-container">
-        <RepositoryMenu addRepository={this.props.addRepository} />
+        <RepositoryMenu
+          addRepository={this.props.addRepository}
+          reloadRepository={this.props.reloadRepository}
+          loadRepositories={this.props.loadRepositories}
+        />
         <RepositoryList
           repos={this.props.repos}
           selectRepository={this.props.selectRepository}
@@ -28,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     addRepository: (owner, repo) =>
       dispatch(RepositoryActions.addRepository(owner, repo)),
     loadRepositories: () => dispatch(RepositoryActions.loadRepositories()),
+    reloadRepository: () => dispatch(RepositoryActions.reloadRepositories()),
     selectRepository: (ind, repoId) =>
       dispatch(RepositoryActions.selectRepository(ind, repoId)),
   };

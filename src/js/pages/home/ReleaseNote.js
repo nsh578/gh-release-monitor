@@ -13,7 +13,7 @@ class ReleaseNote extends Component {
         {repo && (
           <Fragment>
             <h3>
-              {repo.owner} {repo.repo}
+              {repo.owner} {repo.repo} Release Notes
             </h3>
             <p>{repo.releaseBody}</p>
           </Fragment>

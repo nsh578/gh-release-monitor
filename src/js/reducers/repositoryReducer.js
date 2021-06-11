@@ -1,5 +1,6 @@
 const initState = {
   repositories: [],
+  repoList: [],
   currentIndex: 0, //use this to track currently clicked repo
 };
 const repositoryReducer = (state = initState, action) => {
@@ -7,6 +8,7 @@ const repositoryReducer = (state = initState, action) => {
     case "LOAD_REPOS_SUCCESS":
       return Object.assign({}, state, {
         repositories: action.repositories,
+        repoList: action.repoList,
       });
     case "LOAD_REPOS_ERROR":
       console.log(action.err);
@@ -17,6 +19,12 @@ const repositoryReducer = (state = initState, action) => {
       });
     case "ADD_REPO_ERROR":
       console.log(action.err);
+      return state;
+    case "RELOAD_REPOS_SUCCESS":
+      console.log("reload success");
+      return state;
+    case "RELOAD_REPOS_ERROR":
+      console.log("reload failed");
       return state;
     case "SELECT_REPO_SUCCESS":
       let repositories = state.repositories;

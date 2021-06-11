@@ -23,6 +23,12 @@ class RepositoryMenu extends Component {
     this.props.addRepository(this.state.owner, this.state.repo);
   };
 
+  reloadRepository = () => {
+    this.props.reloadRepository().then(() => {
+      this.props.loadRepositories();
+    });
+  };
+
   render() {
     return (
       <div className="repository-menu">
@@ -53,7 +59,7 @@ class RepositoryMenu extends Component {
           )}
         </Popup>
 
-        <button onClick={() => this.props.loadRepository()}>
+        <button onClick={this.reloadRepository}>
           <img src={refresh} alt="" />
         </button>
       </div>
