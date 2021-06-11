@@ -8,12 +8,8 @@ class Repositories extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <button onClick={() => this.props.addRepository("mike", "lumanu")}>
-          Add
-        </button>
-        <button onClick={() => console.log(this.props.repo)}>log</button>
-        <RepositoryMenu />
+      <div className="repositories-container">
+        <RepositoryMenu addRepository={this.props.addRepository} />
         <RepositoryList />
       </div>
     );

@@ -1,0 +1,9 @@
+.repository-menu {
+  display: flex;
+  border: 1px solid black;
+}
+
+.repository-menu img {
+  height: 24px;
+  cursor: pointer;
+}
