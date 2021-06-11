@@ -1,0 +1,7 @@
+.notification-icon {
+  float: right;
+  height: 30px;
+  margin-left: 50px;
+  margin-top: 10px;
+  cursor: pointer;
+}
