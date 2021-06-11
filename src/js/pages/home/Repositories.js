@@ -10,7 +10,7 @@ class Repositories extends Component {
     return (
       <div className="repositories-container">
         <RepositoryMenu addRepository={this.props.addRepository} />
-        <RepositoryList />
+        <RepositoryList repos={this.props.repos} />
       </div>
     );
   }
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    repo: state.repository.repositories,
+    repos: state.repository.repositories,
   };
 };
 

@@ -3,11 +3,12 @@ import "./styles/RepositoryDetail.css";
 
 class RepositoryDetail extends Component {
   render() {
+    const repo = this.props.repo;
     return (
       <div className="repository-detail">
-        <span>VS Code</span>
-        <span>Microsoft</span>
-        <p>Last Release: 1.0.2 </p>
+        <span>{repo.repo}</span>
+        <span>{repo.owner}</span>
+        <p>Last Release: {repo.tag_name} </p>
       </div>
     );
   }

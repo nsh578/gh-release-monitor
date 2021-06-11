@@ -3,11 +3,10 @@ import RepositoryDetail from "./RepositoryDetail";
 
 class RepositoryList extends Component {
   render() {
-    const repos = [1, 2, 3, 4, 5];
     return (
       <div>
-        {repos.map((repo) => {
-          return <RepositoryDetail repo={repo} />;
+        {this.props.repos.map((repo) => {
+          return <RepositoryDetail key={repo.url} repo={repo} />;
         })}
       </div>
     );

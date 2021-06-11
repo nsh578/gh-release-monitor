@@ -1,4 +1,3 @@
-import { Octokit } from "@octokit/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
 import Nav from "./js/pages/nav/Nav";
@@ -6,17 +5,6 @@ import Home from "./js/pages/home/Home";
 import SignIn from "./js/pages/auth/SignIn";
 import SignUp from "./js/pages/auth/SignUp";
 import "./App.css";
-
-const octokit = new Octokit();
-
-octokit
-  .request("GET /repos/{owner}/{repo}/releases", {
-    owner: "microsoft",
-    repo: "vscode",
-  })
-  .then((response) => {
-    console.log(response);
-  });
 
 class App extends Component {
   render() {

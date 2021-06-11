@@ -1,8 +1,6 @@
 const initState = {
-  repositories: [
-    { repo: "vscode", owner: "ms" },
-    { repo: "youtube", owner: "google" },
-  ],
+  repositories: [],
+  currentIndex: 0, //use this to track currently clicked repo
 };
 const repositoryReducer = (state = initState, action) => {
   switch (action.type) {
