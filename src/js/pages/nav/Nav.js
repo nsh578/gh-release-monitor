@@ -16,14 +16,17 @@ class Nav extends Component {
             </li>
             <li className="title">Github Release Monitor Tool</li>
           </div>
-          <div>
-            <li>
-              <Notifications />
-            </li>
-            <li>
-              <button onClick={this.props.signOut}>Sign Out</button>
-            </li>
-          </div>
+
+          {this.props.auth.uid && (
+            <div>
+              <li>
+                <Notifications />
+              </li>
+              <li>
+                <button onClick={this.props.signOut}>Sign Out</button>
+              </li>
+            </div>
+          )}
         </ul>
       </nav>
     );
@@ -33,6 +36,7 @@ class Nav extends Component {
 const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
+    auth: state.firebase.auth,
   };
 };
 

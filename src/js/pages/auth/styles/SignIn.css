@@ -1,0 +1,31 @@
+.auth-input {
+  margin-bottom: 8px;
+}
+
+.auth-input input {
+  border: 1px solid rgb(209, 209, 209);
+  outline: none;
+  width: 250px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.auth-buttons input {
+  margin: 5px;
+  outline: none;
+  border-radius: 7px;
+  font-size: 18px;
+  width: 100px;
+  padding: 3px 6px;
+  border: 1px solid #4eb0ae;
+  background-color: #4eb0ae;
+  color: white;
+  cursor: pointer;
+}
+
+.login-error {
+  padding: 0px 20px;
+  color: red;
+  font-size: 15px;
+  font-weight: 500;
+}

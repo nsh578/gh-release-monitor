@@ -9,6 +9,7 @@ class RepositoryDetail extends Component {
     this.props.selectRepository(this.props.id, repoId);
   };
 
+  //TODO: Implement scrolling
   render() {
     const { userId, repo } = this.props;
     if (!repo) return <div></div>;
@@ -18,10 +19,12 @@ class RepositoryDetail extends Component {
           <img className="new-icon" src={newIcon} alt="" />
         )}
         {console.log(userId in repo.seenUsers)}
-        <span>{repo.repo} </span>
-        <span>@{repo.owner}</span>
+        <span>{repo.repo} @</span>
+        <a href={"https://github.com/" + repo.owner}>{repo.owner}</a>
         <p>Last Release: {repo.tagName} </p>
-        <p>Date: {moment(repo.publishedAt).calendar()}</p>
+        <p className="last-release-date">
+          {moment(repo.publishedAt).calendar()}
+        </p>
       </div>
     );
   }

@@ -25,7 +25,7 @@ class SignIn extends Component {
     const { authError } = this.props;
     return (
       <form className="signin-page" onSubmit={this.handleSubmit}>
-        <div className="signin-input">
+        <div className="auth-input">
           <input
             type="email"
             id="email"
@@ -33,7 +33,7 @@ class SignIn extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="signin-input">
+        <div className="auth-input">
           <input
             type="password"
             id="password"
@@ -42,11 +42,10 @@ class SignIn extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="signin-page-button-container">
-          <input type="submit" id="sign-in-button" value="Login" />
+        <div className="auth-buttons">
+          <input type="submit" value="Login" />
           <input
             type="button"
-            className="signin-page-button"
             value="Sign Up"
             onClick={() => this.props.history.push("/signup")}
           />

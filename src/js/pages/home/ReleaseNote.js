@@ -13,7 +13,7 @@ class ReleaseNote extends Component {
       <div className="release-note-container">
         {repo && (
           <Fragment>
-            <h3>
+            <h3 className="release-note-heading">
               @{repo.owner} {repo.repo} Release Notes
             </h3>
             <ReactMarkdown>{repo.releaseBody}</ReactMarkdown>

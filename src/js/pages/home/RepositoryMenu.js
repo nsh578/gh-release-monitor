@@ -39,12 +39,20 @@ class RepositoryMenu extends Component {
               <button onClick={close}>&times;</button>
 
               <div>
-                Owner:{" "}
-                <input type="text" id="owner" onChange={this.handleChange} />
+                <input
+                  type="text "
+                  id="owner"
+                  onChange={this.handleChange}
+                  placeholder="Enter the Owner (Github ID)"
+                />
               </div>
               <div>
-                Repo:{" "}
-                <input type="text" id="repo" onChange={this.handleChange} />
+                <input
+                  type="text"
+                  id="repo"
+                  onChange={this.handleChange}
+                  placeholder="Enter the Repository Name"
+                />
               </div>
 
               <input type="button" onClick={this.addRepository} value="Add" />

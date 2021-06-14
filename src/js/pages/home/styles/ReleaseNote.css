@@ -1,13 +1,21 @@
 .release-note-container {
   flex: 2;
-  padding: 0px 20px;
+  padding: 0px;
   border-left: 1px solid rgb(88, 88, 88);
+  border-bottom: 1px solid rgb(88, 88, 88);
   text-align: left;
 }
 
-.release-note-container h3 {
-  height: 40px;
+.release-note-heading {
+  height: 60px;
   margin: 0;
-  border-bottom: 1px solid black;
-  padding-top: 20px;
+  background-color: #24292f;
+  color: white;
+  border: 1px solid black;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.release-note-container p {
+  padding: 0 20px;
 }

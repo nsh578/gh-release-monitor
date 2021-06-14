@@ -10,24 +10,24 @@
   background: none;
   list-style-type: none;
   display: flex;
-  margin: 10px;
+  /* margin: 10px; */
   padding: 0;
 }
 
 .nav ul div {
   display: flex;
+  align-items: center;
 }
 
 .nav li button {
   font-size: 20px;
   font-weight: 700;
   color: white;
-  background-color: #188db2;
+  background-color: #4eb0ae;
   border: none;
   border-radius: 20px;
   justify-content: center;
   vertical-align: middle;
-  margin-top: 3px;
   margin-left: 20px;
   padding: 10px 15px;
 }
@@ -41,7 +41,6 @@
   font-size: 24px;
   vertical-align: middle;
   margin-left: 10px;
-  margin-top: 10px;
 }
 
 .logo img {

@@ -26,8 +26,7 @@ class SignUp extends Component {
     const { signUpError } = this.props;
     return (
       <form className="signup-page" onSubmit={this.handleSubmit}>
-        <p className="signup-label">- Sign Up -</p>
-        <div className="signup-input">
+        <div className="auth-input">
           <input
             type="email"
             id="email"
@@ -35,7 +34,7 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="signup-input">
+        <div className="auth-input">
           <input
             type="password"
             id="password"
@@ -43,7 +42,7 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="signup-input">
+        <div className="auth-input">
           <input
             type="password"
             id="passwordCheck"
@@ -52,7 +51,7 @@ class SignUp extends Component {
           />
         </div>
 
-        <div className="signup-buttons">
+        <div className="auth-buttons">
           <input
             type="button"
             id="sign-up-button"
